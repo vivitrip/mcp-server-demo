@@ -19,15 +19,15 @@
 相关图片：
 1. cline配置-使用千问模型
 
-![配置模型](doc/img.png)
+![配置模型](doc/LLM_config.png)
 
 2. cline配置-配置MCP Server
 
-![配置本地服务器](doc/img_1.png)
+![配置本地服务器](doc/mcp_config.png)
 
 3. 对话信息
 
-![img.png](doc/img_2.png)
+![对话信息.png](doc/chat_log.png)
 
 ## 2. 工程介绍
 由于使用了spring-ai提供的能力，所以在MCP开发上是非常简洁的，只需要完成tool注册即可。

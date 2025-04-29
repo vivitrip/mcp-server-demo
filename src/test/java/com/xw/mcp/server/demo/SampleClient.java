@@ -5,6 +5,7 @@ import io.modelcontextprotocol.spec.ClientMcpTransport;
 import io.modelcontextprotocol.spec.McpSchema.CallToolRequest;
 import io.modelcontextprotocol.spec.McpSchema.CallToolResult;
 import io.modelcontextprotocol.spec.McpSchema.ListToolsResult;
+import java.util.Map;
 
 
 public class SampleClient {
@@ -27,10 +28,12 @@ public class SampleClient {
     ListToolsResult toolsList = client.listTools();
     System.out.println("可用工具 = " + toolsList);
 
-    // 获取北京的空气质量信息
-    CallToolResult airQualityResult = client.callTool(new CallToolRequest("executeSparkJob", null));
-    System.out.println("任务执行信息: " + airQualityResult);
-
+    // 执行Spark任务
+    CallToolResult sparkTaskResult = client.callTool(new CallToolRequest("executeSparkJob",
+        Map.of("args",
+            "spark-submit --master local[4] --class com.xw.MySQLToMaxCompute practice-1.0-SNAPSHOT-jar-with-dependencies.jar")));
+    System.out.println("任务执行结果: " + sparkTaskResult.content());
     client.closeGracefully();
+
   }
 }
