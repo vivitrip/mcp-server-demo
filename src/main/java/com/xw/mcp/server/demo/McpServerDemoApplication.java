@@ -18,8 +18,8 @@ public class McpServerDemoApplication {
   }
 
   @Bean
-  public ToolCallbackProvider weatherTools(OpenMeteoService openMeteoService) {
-    return MethodToolCallbackProvider.builder().toolObjects(openMeteoService).build();
+  public ToolCallbackProvider dataTools(ExecSparkJob execSparkJob) {
+    return MethodToolCallbackProvider.builder().toolObjects(execSparkJob).build();
   }
 }
 
